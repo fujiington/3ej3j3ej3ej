@@ -16,11 +16,13 @@ function userSelectChange() {
     if (userData) {
         nameInput.value = userData.name || "";
         ageInput.value = userData.age || "";
-        colorInput.value = userData.color || "";
+        colorInput.value = userData.color || "#000000 ";
+        document.body.style.backgroundColor = userData.color || "#000000"; 
     } else {
         nameInput.value = "";
         ageInput.value = "";
-        colorInput.value = "";
+        colorInput.value = "#000000";
+        document.body.style.backgroundColor = "#000000"; 
     }
 };
 
@@ -45,4 +47,6 @@ window.onload = userSelectChange;
 
 
 userSelect.addEventListener("change", userSelectChange);
-
+colorInput.addEventListener("input", () => {
+    document.body.style.backgroundColor = colorInput.value;
+});
