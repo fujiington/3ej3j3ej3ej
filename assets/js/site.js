@@ -10,17 +10,17 @@ function userSelectChange() {
     const selectedUser = userSelect.value;
     console.log('change user to: ' + selectedUser);
 
-    // Hent data fra localStorage og vis i formularen
+    // TODO: Hent data fra localStorage og vis i formularen
     const userData = JSON.parse(localStorage.getItem(selectedUser));
 
     if (userData) {
         nameInput.value = userData.name || "";
         ageInput.value = userData.age || "";
-        colorInput.value = userData.color || "#000000";
+        colorInput.value = userData.color || "";
     } else {
         nameInput.value = "";
         ageInput.value = "";
-        colorInput.value = "#000000";
+        colorInput.value = "";
     }
 };
 
@@ -33,7 +33,7 @@ saveButton.addEventListener("click", () => {
     const age = ageInput.value;
     const color = colorInput.value;
 
-    // Gem data i localStorage for den valgte bruger
+    // TODO: Gem data i localStorage for den valgte bruger
     const userData = { name, age, color };
     localStorage.setItem(selectedUser, JSON.stringify(userData));
 
@@ -43,5 +43,6 @@ saveButton.addEventListener("click", () => {
 // Vis data for første bruger ved load
 window.onload = userSelectChange;
 
-// Sørg for at formularen skifter når brugeren ændres
+
 userSelect.addEventListener("change", userSelectChange);
+
